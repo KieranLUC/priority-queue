@@ -16,6 +16,19 @@ public class MergeSortPriorityQueue implements PriorityQueue {
 
     @Override
     public Integer removeMin() {
+
+        Integer[] numbers = this.integers.toArray(new Integer[this.integers.size()]);
+
+        sort(numbers);
+
+        Integer minimumValue = numbers[0];
+        this.integers.remove(minimumValue);
+        return minimumValue;
+    }
+
+    private void sort(Integer[] numbers) {
+
+        // implement with merge sort algorithm
         throw new UnsupportedOperationException("not implemented yet!");
     }
 }

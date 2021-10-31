@@ -9,7 +9,7 @@ public class SelectionSortPriorityQueueTest {
     @Test
     public void getsMinimum() {
 
-        PriorityQueue priorityQueue = new QuickSortPriorityQueue(34, 5, 12, 8, 35, 99, 1, 28);
+        PriorityQueue priorityQueue = new SelectionSortPriorityQueue(34, 5, 12, 8, 35, 99, 1, 28);
 
         assertEquals(1, priorityQueue.removeMin());
         assertEquals(5, priorityQueue.removeMin());
