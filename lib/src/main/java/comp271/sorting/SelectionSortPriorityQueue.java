@@ -19,16 +19,47 @@ public class SelectionSortPriorityQueue  implements PriorityQueue {
 
         Integer[] numbers = this.integers.toArray(new Integer[this.integers.size()]);
 
-        sort(numbers);
+        selectionSort(numbers);
 
         Integer minimumValue = numbers[0];
         this.integers.remove(minimumValue);
         return minimumValue;
     }
 
-    private void sort(Integer[] numbers) {
+    private void selectionSort(Integer[] numbers) {
 
-        // implement with selection sort algorithm
-        throw new UnsupportedOperationException("not implemented yet!");
+        /**
+         *   i = 0
+         *   j = 0
+         *   temp = 0
+         *   indexOfTheSmallestElement = 0
+         *
+         *   for(i = 0..n) {
+         *     indexOfTheSmallestElement = i
+         *     for(j = i+1..n) {
+         *       if(A[j] < A[indexOfTheSmallestElement]) {
+         *         indexOfTheSmallestElement = j
+         *       }
+         *     }
+         *
+         *     temp = A[i]
+         *     A[i] = A[indexOfTheSmallestElement]
+         *     A[indexOfTheSmallestElement] = temp
+         *   }
+         */
+
+        int temp = 0;
+        int indexOfSmallest = 0;
+        for (int i = 0; i < numbers.length - 1; i++) {
+            indexOfSmallest = i;
+            for (int j = i+1; j < numbers.length; j++) {
+                if (numbers[j] < numbers[indexOfSmallest]) {
+                    indexOfSmallest = j;
+                }
+            }
+            temp = numbers[i];
+            numbers[i] = numbers[indexOfSmallest];
+            numbers[indexOfSmallest] = temp;
+        }
     }
 }
