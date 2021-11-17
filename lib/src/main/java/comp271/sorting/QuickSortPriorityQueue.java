@@ -44,12 +44,16 @@ public class QuickSortPriorityQueue implements PriorityQueue {
      */
 
     private final List<Integer> integers;
-
-    public QuickSortPriorityQueue(Integer... integers) {
+    private int numberOfComparisons=0 ; // stores the vaule of the number of comparisons
+    private int runningTime=0;  // stores the vaule of the running time or time complexity
+    public QuickSortPriorityQueue(int[] integer) {
         this.integers = new ArrayList<>();
-        for (Integer integer : integers) {
-            this.integers.add(integer);
+        for (Integer numbers : integer) {
+            this.integers.add(numbers);
         }
+        Integer[] numbers = this.integers.toArray(new Integer[this.integers.size()]);
+        sort(numbers);// sorts the numbers
+        System.out.println("the number of comparisons are :"+numberOfComparisons); // displays the number of comparisons
     }
 
     @Override
@@ -73,14 +77,19 @@ public class QuickSortPriorityQueue implements PriorityQueue {
         boolean done = false;
         while (!done) {
 
+            numberOfComparisons++;
             while (numbers[lowIndex] < pivotValue) {
                 lowIndex++;
+                numberOfComparisons++;
             }
 
+            numberOfComparisons++;
             while (pivotValue < numbers[highIndex]) {
                 highIndex--;
+                numberOfComparisons++;
             }
 
+            numberOfComparisons++;
             if (lowIndex >= highIndex) {
                 done = true;
             } else {
@@ -96,13 +105,14 @@ public class QuickSortPriorityQueue implements PriorityQueue {
 
     private void sort(Integer[] numbers) {
 
-
-
+        runningTime = (int) (numbers.length + (numbers.length)*(Math.log(numbers.length)/Math.log(2))); // computes the running time of merge sort
+        System.out.println("the running time is "+runningTime);
         quickSort(numbers, 0, numbers.length - 1);
     }
 
     private void quickSort(Integer[] numbers, int lowIndex, int highIndex) {
 
+        numberOfComparisons++;
         if (lowIndex >= highIndex) {
             return;
         }

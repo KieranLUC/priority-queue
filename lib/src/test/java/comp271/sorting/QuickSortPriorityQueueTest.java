@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class QuickSortPriorityQueueTest {
 
-    @Test
+   /* @Test
     public void getsMinimum() {
 
         PriorityQueue priorityQueue = new QuickSortPriorityQueue(34, 5, 12, 8, 35, 99, 1, 28);
@@ -20,4 +20,21 @@ public class QuickSortPriorityQueueTest {
         assertEquals(35, priorityQueue.removeMin());
         assertEquals(99, priorityQueue.removeMin());
     }
+    */
+   public static void main(String[] args) {
+       int [] interArray = new int [50];
+       for(int x =0;x<50;x++){
+           if(x%2==0 && x!=0){
+               interArray[x]=x;
+           }
+           else {
+               interArray[x] = 2*x + 3;
+           }
+
+       }
+
+
+       PriorityQueue priorityQueue = new QuickSortPriorityQueue(interArray);
+
+   }
 }
