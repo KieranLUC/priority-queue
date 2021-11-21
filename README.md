@@ -1,6 +1,6 @@
 # PriorityQueue
 
-*Selection Sort Summary
+* Selection Sort Summary
 The big O notation of selection sort is 0(n^2), thus unlike the merge sort and quick sort , the runtime of this algorithm is longer .
 In my test, I considered all the 0(1) and 0(n^2) operations and generalized a formula to compute the running time of selection sort
 * Quick Sort Summary 
